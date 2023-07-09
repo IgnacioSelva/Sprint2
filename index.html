@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="formstyle.css" />
+  </head>
+  <body>
+    <main class="ctn">
+      <section class="left">
+            <div id="frontCard"> 
+            <!--     <label for="propiertaryName"></label>
+                <input name="propietaryName" type="text" id="cardLetters"> -->
+                <img  class="card" src="image/bg-card-front.png" alt="">
+                <div id="outputName"></div>
+            </div>
+            <div id="backCard">
+                <img class="card" src="image/bg-card-back.png" alt="">
+                
+            </div>
+            <div class="input-label">
+              <label for="name" class="letters" oninput='transferText()'> </label>
+                <input
+                  id="nameBoxCard"
+                  class="name-numb"
+                  type="text"
+                  
+                  
+                  
+                  
+                 
+                />
+            </div> 
+      </section>
+
+      <section class="right">
+
+        <form class="formulario">
+
+          <div class="input-label">
+            <label for="name"  class="letters">Cardholder Name</label>
+              <input
+                id="nameBox"
+                class="name-numb"
+                type="text"
+                placeholder="example:Ignacio Selva"
+               
+              />
+          </div>
+
+          <div class="input-label">
+            <label for="number">Card Number</label>
+              <input
+                id="numBox"
+                class="name-numb"
+                type="number"
+                name="number"
+                placeholder="example:12345 678 90"
+              />
+          </div>
+
+          <div class="details">
+            <div class="input-label">
+              <label for="month">Exp.Date </label>
+                <input id="monthBox" 
+                class="mmyy" 
+                type="number" 
+                name="month" 
+                placeholder="MM" />
+            </div>
+
+            <div class="inputLabel">
+              <label for="year">(MM/AA)</label>
+                <input class="mmyy"
+                id="yearBox" 
+                type="number" 
+                name="year" 
+                placeholder="YY" />
+            </div>
+
+            <div class="input-label">
+              <label for="cvc">CVC</label>
+                <input
+                id="cvcBox"
+                 type="number"
+                 name="cvc" 
+                 placeholder="example:123" />
+            </div>
+          </div>
+
+          <button id="confirmButton" class="button">Confirm</button>
+        </form>
+
+      </section>
+    </main>
+    <script>
+      const confirmButton = document.getElementById('confirmButton');
+      const nameBox= document.getElementById('nameBox');
+      const numBox = document.getElementById('numBox');
+      const monthBox = document.getElementById('monthBox');
+      const yearBox = document.getElementById('yearBox');
+      const cvcBox = document.getElementById('cvcBox');
+      const outputName = document.getElementById('outputName');
+      const nameBoxCard= document.getElementById('nameBoxCard');
+      
+      
+      confirmButton.addEventListener('click',function(evt){
+        evt.preventDefault();
+        if(nameBox.value.length && numBox.value.length  && monthBox.value.length && yearBox.value.length && cvcBox.value.length){
+          alert('Datos ingresados con exito')
+          
+        }else{
+          alert('Recuerde llenar el formulario de manera correcta')
+        }
+
+      })
+      function printName(){
+        let name = nameBox.value;
+        outputName.textContent = name;
+
+
+      }
+      nameBox.addEventListener('input',function(event){
+        nameBoxCard.value = nameBox.value;
+      })
+    
+    </script>
+  </body>
+</html>
